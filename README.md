@@ -1,3 +1,3 @@
 # BolilerplateWP
-# BolilerplateWP
-# BolilerplateWP
+# Basic Boilerplate Wordpress project with SASS
+
