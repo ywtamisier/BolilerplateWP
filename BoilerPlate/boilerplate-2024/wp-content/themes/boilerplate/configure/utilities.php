@@ -106,46 +106,6 @@ function urllatinizeString($texto)
  * @param string       $post_type Optional. Post type. Default 'page'.
  * @return null
  */
-function the_page_link($page_path = null, $post_type = 'page')
-{
-  if (is_null($page_path)) {
-    echo '';
-  }
-
-  $parsed_url = parse_url($page_path);
-
-  if ($parsed_url === false) {
-    echo $page_path;
-  }
-
-  $page_obj = get_page_by_path($parsed_url['path'], OBJECT, $post_type);
-
-
-  $permalink = '';
-
-  if ($page_path == '/imprensa/press-releases/') {  // não é vinculado single com esta função
-    echo get_post_type_archive_link('imprensa');
-
-  } else if ($page_path == '/inovacao-engie/projetos/') { // não tem single
-    echo get_post_type_archive_link('projetos');
-
-  } else if (str_contains($page_path, '/duvidas-frequentes/')) {  // vincula single de investidores
-    $url_parts = explode('/duvidas-frequentes/', $page_path);
-
-    $suffix = $url_parts[1] ?? '';
-
-    echo get_post_type_archive_link('duvida_frequente') . $suffix;
-
-  } else if (is_null($page_obj)) {
-    echo $page_path;
-
-  } else {
-    $permalink = get_permalink($page_obj);
-
-    echo $permalink . (isset($parsed_url['fragment']) ? '#' . $parsed_url['fragment'] : '') . (isset($parsed_url['query']) ? '?' . $parsed_url['query'] : '');
-  }
-
-}
 
 /**
  * Retorna o código do idioma ativo

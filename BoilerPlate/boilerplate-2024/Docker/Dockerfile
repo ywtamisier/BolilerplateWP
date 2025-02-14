@@ -44,7 +44,7 @@ RUN mv "$PHP_INI_DIR/php.ini-production" "$PHP_INI_DIR/php.ini"
 
 
 #rodar comando composer install na pasta abaixo.
-#RUN composer install --working-dir=/var/www/html/wp-content/themes/engie_corporate/app
+#RUN composer install --working-dir=/var/www/html/wp-content/themes/myTheme/app
 
 USER 1000
 
